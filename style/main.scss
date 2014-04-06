@@ -25,13 +25,13 @@ html, body {
   margin: 0;
   padding: 0;
 
-  background: url('../images/stars_bg2.jpg') repeat;
   color: $text-color;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px;
 }
 
 body {
+  background: url('../images/stars_bg2.jpg') repeat;
   margin: 80px 0;
 }
 
@@ -207,7 +207,7 @@ hr {
       text-align: center;
 
       p {
-        font-size: 60px;
+        font-size: 40px;
         font-weight: bold;
         height: 60px;
         line-height: 60px;
