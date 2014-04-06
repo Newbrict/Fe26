@@ -157,9 +157,13 @@ GameManager.prototype.move = function (direction) {
         var next      = self.grid.cellContent(positions.next);
 
         // Only one merger per row traversal?
+        var shouldMove = true;
         if (next && !next.mergedFrom) {
-          if(next.value === tile.value) {
-            var merged = new Tile(positions.next, tile.value * 2);
+          //if(next.value === tile.value) {
+          if( self.canFuse(next.value,tile.value) ) {
+            shouldMove = false;
+            var fusionValue = self.fusion(next.value,tile.value);
+            var merged = new Tile(positions.next, fusionValue);
             merged.mergedFrom = [tile, next];
 
             self.grid.insertTile(merged);
@@ -169,13 +173,14 @@ GameManager.prototype.move = function (direction) {
             tile.updatePosition(positions.next);
 
             // Update the score
-            self.score += merged.value;
+            self.score += self.pointValues[merged.value];
 
+            // TODO win state
             // The mighty 2048 tile
             if (merged.value === 2048) self.won = true;
-          } else {
-            self.moveTile(tile, positions.farthest);
-        }} else {
+          }
+        }
+        if (shouldMove) {
           self.moveTile(tile, positions.farthest);
         }
 
@@ -263,7 +268,7 @@ GameManager.prototype.tileMatchesAvailable = function () {
 
           var other  = self.grid.cellContent(cell);
 
-          if (other && other.value === tile.value) {
+          if (other && self.canFuse(other.value, tile.value)) {
             return true; // These two tiles can be merged
           }
         }
@@ -276,4 +281,35 @@ GameManager.prototype.tileMatchesAvailable = function () {
 
 GameManager.prototype.positionsEqual = function (first, second) {
   return first.x === second.x && first.y === second.y;
+};
+
+GameManager.prototype.canFuse = function (first, second) {
+  return (this.fusionRules[first]  && this.fusionRules[first][second]) ||
+         (this.fusionRules[second] && this.fusionRules[second][first]);
+};
+
+GameManager.prototype.fusion = function (first, second) {
+  var forward = this.fusionRules[first][second];
+  if (forward) {
+    return forward;
+  } else {
+    var backward = this.fusionRules[second][first];
+    return backward;
+  }
+};
+
+// a:{b:c}
+// a + b = c
+GameManager.prototype.fusionRules = {
+  2:{2:4},
+  4:{4:8},
+  8:{8:16},
+  16:{16:":)"}
+};
+
+GameManager.prototype.pointValues = {
+  4:4,
+  8:8,
+  16:16,
+  ":)":999
 };
