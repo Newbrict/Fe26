@@ -72,7 +72,7 @@ GameManager.prototype.addStartTiles = function () {
 // Adds a tile in a random position
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
-    var value = Math.random() < 0.9 ? 2 : 4;
+    var value = Math.random() < 0.9 ? "Hydrogen" : "Helium";
     var tile = new Tile(this.grid.randomAvailableCell(), value);
 
     this.grid.insertTile(tile);
@@ -301,15 +301,11 @@ GameManager.prototype.fusion = function (first, second) {
 // a:{b:c}
 // a + b = c
 GameManager.prototype.fusionRules = {
-  2:{2:4},
-  4:{4:8},
-  8:{8:16},
-  16:{16:":)"}
+  "Hydrogen":{"Hydrogen":"Helium"},
+  "Helium":{"Helium":"Dimitarium"}
 };
 
 GameManager.prototype.pointValues = {
-  4:4,
-  8:8,
-  16:16,
-  ":)":999
+  "Helium":2,
+  "Dimitarium":1.5
 };
