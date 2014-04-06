@@ -2,6 +2,7 @@ function Tile(position, value) {
   this.x                = position.x;
   this.y                = position.y;
   this.value            = value || 2;
+  this.movesLeft        = -1;
 
   this.previousPosition = null;
   this.mergedFrom       = null; // Tracks tiles that merged together
@@ -22,6 +23,16 @@ Tile.prototype.serialize = function () {
       x: this.x,
       y: this.y
     },
-    value: this.value
+    value: this.value,
+    movesLeft: this.movesLeft
   };
+};
+
+Tile.prototype.decay = function() {
+  if(this.movesLeft > 0) this.movesLeft -= 1;
+
+  if(this.movesLeft === 0) {
+    console.log("Decay me");
+    this.movesLeft = -1;
+  }
 };

@@ -324,6 +324,20 @@ hr {
     font-size: 16px;
   }
 
+  .tile-counter {
+    background: $game-container-background;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 0.65em;
+    line-height: 13px;
+    padding-top: 3px;
+    position: absolute;
+    right: 7px;
+    text-align: center;
+    top: 7px;
+    width: 16px;
+  }
+
   // Movement transition
   @include transition($transition-speed ease-in-out);
   -webkit-transition-property: -webkit-transform;

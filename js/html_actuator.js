@@ -51,6 +51,7 @@ HTMLActuator.prototype.addTile = function (tile) {
 
   var wrapper   = document.createElement("div");
   var inner     = document.createElement("div");
+  var counter   = document.createElement("div");
   var position  = tile.previousPosition || { x: tile.x, y: tile.y };
   var positionClass = this.positionClass(position);
 
@@ -81,6 +82,12 @@ HTMLActuator.prototype.addTile = function (tile) {
   } else {
     classes.push("tile-new");
     this.applyClasses(wrapper, classes);
+  }
+
+  if(tile.movesLeft >= 0) {
+    counter.textContent = tile.movesLeft;
+    counter.classList.add('tile-counter');
+    wrapper.appendChild(counter);
   }
 
   // Add the inner part of the tile to the wrapper

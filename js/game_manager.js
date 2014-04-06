@@ -165,6 +165,7 @@ GameManager.prototype.move = function (direction) {
             var fusionValue = self.fusion(next.value,tile.value);
             var merged = new Tile(positions.next, fusionValue);
             merged.mergedFrom = [tile, next];
+            //merged.movesLeft = 5;
 
             self.grid.insertTile(merged);
             self.grid.removeTile(tile);
@@ -193,6 +194,10 @@ GameManager.prototype.move = function (direction) {
 
   if (moved) {
     this.addRandomTile();
+
+    this.grid.eachCell(function(x, y, tile) {
+      if(tile !== null) tile.decay();
+    });
 
     if (!this.movesAvailable()) {
       this.over = true; // Game over!
