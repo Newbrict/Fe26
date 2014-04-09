@@ -72,7 +72,7 @@ GameManager.prototype.addStartTiles = function () {
 // Adds a tile in a random position
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
-    var value = Math.random() < 0.9 ? "Hydrogen" : "Helium";
+    var value = Math.random() < 0.9 ? "Hydrogen" : "Deuteron";
     var tile = new Tile(this.grid.randomAvailableCell(), value);
 
     this.grid.insertTile(tile);
@@ -294,11 +294,13 @@ GameManager.prototype.canFuse = function (first, second) {
 };
 
 GameManager.prototype.fusion = function (first, second) {
-  var forward = this.fusionRules[first][second];
-  if (forward) {
-    return forward;
+  var forward = this.fusionRules[first];
+  if (forward && forward[second]) {
+		console.log(first + " " + second + " " + forward[second]);
+    return forward[second];
   } else {
     var backward = this.fusionRules[second][first];
+		console.log(first + " " + second + " " + backward);
     return backward;
   }
 };
@@ -306,10 +308,29 @@ GameManager.prototype.fusion = function (first, second) {
 // a:{b:c}
 // a + b = c
 GameManager.prototype.fusionRules = {
-  "Hydrogen":{"Hydrogen":"Helium"},
-  "Helium":{"Helium":"Dimitarium"},
-  "Dimitarium":{"Dimitarium":"Soumyarupium"},
-  "Soumyarupium":{"Soumyarupium":"Kevinolium"}
+  "Hydrogen":{"Hydrogen":"Deuteron",
+							"Deuteron":"3Helium"
+						 },
+  "3Helium":{"3Helium":"4Helium",
+							//"4Helium":"7Beryllium"
+						 },
+  "4Helium":{"4Helium":"8Beryllium", // unstable decays into 2 4heliums
+						 "8Beryllium":"12Carbon",
+						 "12Carbon":"16Oxygen",
+						 "16Oxygen":"20Neon",
+						 "20Neon":"24Magnesium", // this is a killer!
+						 "28Silicon":"32Sulfur",
+						 "32Sulfur":"36Argon",
+						 "36Argon":"40Calcium",
+						 "40Calcium":"44Titanium",
+						 "44Titanium":"48Chromium",
+						 "48Chromium":"52Iron",
+						 "52Iron":"56Nickel",
+						},
+  "12Carbon":{"12Carbon":"20Neon", // + 4Helium (randomness)
+						},
+  "16Oxygen":{"16Oxygen":"28Silicon", // + 4Helium
+						},
 };
 
 GameManager.prototype.pointValues = {
