@@ -307,10 +307,14 @@ GameManager.prototype.fusion = function (first, second) {
 // a + b = c
 GameManager.prototype.fusionRules = {
   "Hydrogen":{"Hydrogen":"Helium"},
-  "Helium":{"Helium":"Dimitarium"}
+  "Helium":{"Helium":"Dimitarium"},
+  "Dimitarium":{"Dimitarium":"Soumyarupium"},
+  "Soumyarupium":{"Soumyarupium":"Kevinolium"}
 };
 
 GameManager.prototype.pointValues = {
   "Helium":2,
-  "Dimitarium":1.5
+  "Dimitarium":1.5,
+  "Soumyarupium":1.5,
+  "Kevinolium":1.5
 };
