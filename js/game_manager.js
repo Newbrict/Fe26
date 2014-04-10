@@ -186,7 +186,7 @@ GameManager.prototype.move = function (direction) {
 
             // TODO win state
             // The mighty 2048 tile
-            if (merged.value === 2048) self.won = true;
+            if (merged.value === "52Iron") self.won = true;
           }
         }
         if (shouldMove) {
