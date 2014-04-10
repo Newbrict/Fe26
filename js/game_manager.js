@@ -165,6 +165,13 @@ GameManager.prototype.move = function (direction) {
             var fusionValue = self.fusion(next.value,tile.value);
             var merged = new Tile(positions.next, fusionValue, self.labels[fusionValue]);
             merged.mergedFrom = [tile, next];
+
+            var decay = self.decay[fusionValue] || false;
+
+            if(decay !== false) {
+              merged.movesLeft = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
+            }
+
             //merged.movesLeft = 5;
 
             self.grid.insertTile(merged);
@@ -196,7 +203,15 @@ GameManager.prototype.move = function (direction) {
     this.addRandomTile();
 
     this.grid.eachCell(function(x, y, tile) {
-      if(tile !== null) tile.decay();
+      if(tile !== null && self.decay[tile.value] && tile.decay()) {
+        var decayValue = self.decay[tile.value];
+        var decayed = new Tile({
+          x: tile.x,
+          y: tile.y
+        }, decayValue, self.labels[decayValue]);
+        self.grid.removeTile(tile);
+        self.grid.insertTile(decayed);
+      }
     });
 
     if (!this.movesAvailable()) {
@@ -356,6 +371,10 @@ GameManager.prototype.labels = {
   "48Chromium": "<sup>48</sup>Chromium",
   "52Iron": "<sup>52</sup>Iron",
   "56Nickel": "<sup>56</sup>Nickel"
+}
+
+GameManager.prototype.decay = {
+  "8Beryllium": "4Helium"
 }
 
 GameManager.prototype.pointValues = {

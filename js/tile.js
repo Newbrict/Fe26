@@ -34,7 +34,9 @@ Tile.prototype.decay = function() {
   if(this.movesLeft > 0) this.movesLeft -= 1;
 
   if(this.movesLeft === 0) {
-    console.log("Decay me");
+    return true;
     this.movesLeft = -1;
   }
+
+  return false;
 };

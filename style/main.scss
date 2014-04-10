@@ -17,7 +17,7 @@ $tile-gold-color: #edc22e;
 $tile-gold-glow-color: lighten($tile-gold-color, 15%);
 
 $game-container-margin-top: 40px;
-$game-container-background: #bbada0;
+$game-container-background: #00ada0;
 
 $transition-speed: 100ms;
 
@@ -328,9 +328,9 @@ hr {
     background: $game-container-background;
     border-radius: 20px;
     color: #fff;
-    font-size: 0.65em;
+    font-size: 0.9em;
     line-height: 13px;
-    padding-top: 3px;
+    padding: 4px 2px;
     position: absolute;
     right: 7px;
     text-align: center;

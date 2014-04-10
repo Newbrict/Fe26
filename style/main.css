@@ -316,9 +316,9 @@ hr {
     background: #00ada0;
     border-radius: 20px;
     color: #fff;
-    font-size: 0.65em;
+    font-size: 0.9em;
     line-height: 13px;
-    padding-top: 3px;
+    padding: 4px 2px;
     position: absolute;
     right: 7px;
     text-align: center;
