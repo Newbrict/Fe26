@@ -312,11 +312,11 @@ GameManager.prototype.canFuse = function (first, second) {
 GameManager.prototype.fusion = function (first, second) {
   var forward = this.fusionRules[first];
   if (forward && forward[second]) {
-		console.log(first + " " + second + " " + forward[second]);
+		//console.log(first + " " + second + " " + forward[second]);
     return forward[second];
   } else {
     var backward = this.fusionRules[second][first];
-		console.log(first + " " + second + " " + backward);
+		//console.log(first + " " + second + " " + backward);
     return backward;
   }
 };
@@ -375,7 +375,8 @@ GameManager.prototype.labels = {
 }
 
 GameManager.prototype.decay = {
-  "8Beryllium": "4Helium"
+  "8Beryllium": "4Helium",
+  "56Nickel": "52Iron"
 }
 
 GameManager.prototype.pointValues = {
