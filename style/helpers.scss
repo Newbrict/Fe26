@@ -82,7 +82,7 @@
 
 @mixin tile-bg-color($exponent) {
   $base: 2;
-  $limit: 18;
+  $limit: 19;
 
   // Colors for all 11 states, false = no special color
   $special-colors: false false, // 2

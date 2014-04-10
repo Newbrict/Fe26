@@ -174,7 +174,7 @@ GameManager.prototype.move = function (direction) {
             var decay = self.decay[fusionValue] || false;
 
             if(decay !== false) {
-              merged.movesLeft = Math.floor(Math.random() * (10*decay['multipler'] - 5*decay['multipler'] + 1)) + 5*decay['multipler'];
+              merged.movesLeft = Math.floor(Math.random() * (10*decay['multipler'] - 4*decay['multipler'] + 1)) + 4*decay['multipler'];
             }
 
             //merged.movesLeft = 5;
@@ -190,7 +190,7 @@ GameManager.prototype.move = function (direction) {
 
             // TODO win state
             // The mighty 2048 tile
-            if (merged.value === "52Iron") self.won = true;
+            if (merged.value === "56Iron") self.won = true;
           }
         }
         if (shouldMove) {
@@ -345,9 +345,9 @@ GameManager.prototype.fusionRules = {
 						 "48Chromium":"52Iron",
 						 "52Iron":"56Nickel"
 						},
-  "12Carbon":{"12Carbon":"20Neon", // + 4Helium (randomness)
-						 },
   "16Oxygen":{"16Oxygen":"28Silicon", // + 4Helium
+             },
+  "12Carbon":{"12Carbon":"20Neon", // + 4Helium (randomness)
 						 }
 };
 
@@ -369,21 +369,26 @@ GameManager.prototype.labels = {
   "44Titanium": "<sup>44</sup>Titanium",
   "48Chromium": "<sup>48</sup>Chromium",
   "52Iron": "<sup>52</sup>Iron",
-  "56Nickel": "<sup>56</sup>Nickel"
+  "56Nickel": "<sup>56</sup>Nickel",
+  "56Iron": "<sup>56</sup>Iron"
 }
 
 GameManager.prototype.decay = {
   "7Beryllium": {
-    "multipler": "2",
+    "multipler": "3",
     "to": "4Helium"
   },
   "8Beryllium": {
+    "multipler": "0.5",
+    "to": "4Helium"
+  },
+  "52Iron": {
     "multipler": "1",
     "to": "4Helium"
   },
   "56Nickel": {
-    "multipler": "1",
-    "to": "52Iron"
+    "multipler": "2",
+    "to": "56Iron"
   }
 }
 
@@ -404,5 +409,6 @@ GameManager.prototype.pointValues = {
   "44Titanium":22,
   "48Chromium":24,
   "52Iron":26,
-  "56Nickel":28
+  "56Nickel":28,
+  "56Iron":56
 };

@@ -399,6 +399,9 @@ hr {
   &.tile-56Nickel .tile-inner {
     @include tile-bg-color(18);
   }
+  &.tile-56Iron .tile-inner {
+    @include tile-bg-color(18);
+  }
 }
 
 @include keyframes(appear) {

@@ -328,55 +328,58 @@ hr {
   .tile.tile-Hydrogen .tile-inner {
     background: #eee4da; }
   .tile.tile-Deuteron .tile-inner {
-    background: #ede2cf; }
+    background: #ede2d0; }
   .tile.tile-3Helium .tile-inner {
     color: #f9f6f2;
     background: #f2b280; }
   .tile.tile-4Helium .tile-inner {
     color: #f9f6f2;
-    background: #f5976d; }
+    background: #f5976e; }
   .tile.tile-7Beryllium .tile-inner {
     color: #f9f6f2;
-    background: #f67f6b; }
+    background: #f67f6c; }
   .tile.tile-8Beryllium .tile-inner {
     color: #f9f6f2;
-    background: #f6624b; }
+    background: #f6624c; }
   .tile.tile-12Carbon .tile-inner {
     color: #f9f6f2;
-    background: #edd79d; }
+    background: #edd8a0; }
   .tile.tile-16Oxygen .tile-inner {
     color: #f9f6f2;
-    background: #edd693; }
+    background: #edd697; }
   .tile.tile-20Neon .tile-inner {
     color: #f9f6f2;
-    background: #edd489; }
+    background: #edd48d; }
   .tile.tile-24Magnesium .tile-inner {
     color: #f9f6f2;
-    background: #edd27e; }
+    background: #edd384; }
   .tile.tile-28Silicon .tile-inner {
     color: #f9f6f2;
-    background: #edd074; }
+    background: #edd17a; }
   .tile.tile-32Sulfur .tile-inner {
     color: #f9f6f2;
-    background: #edce6a; }
+    background: #edcf70; }
   .tile.tile-36Argon .tile-inner {
     color: #f9f6f2;
-    background: #edcc60; }
+    background: #edcd67; }
   .tile.tile-40Calcium .tile-inner {
     color: #f9f6f2;
-    background: #edca56; }
+    background: #edcb5d; }
   .tile.tile-44Titanium .tile-inner {
     color: #f9f6f2;
-    background: #edc84c; }
+    background: #edc954; }
   .tile.tile-48Chromium .tile-inner {
     color: #f9f6f2;
-    background: #edc642; }
+    background: #edc74a; }
   .tile.tile-52Iron .tile-inner {
     color: #f9f6f2;
-    background: #edc438; }
+    background: #edc541; }
   .tile.tile-56Nickel .tile-inner {
     color: #f9f6f2;
-    background: #edc22e; }
+    background: #edc337; }
+  .tile.tile-56Iron .tile-inner {
+    color: #f9f6f2;
+    background: #edc337; }
 
 @-webkit-keyframes appear {
   0% {
