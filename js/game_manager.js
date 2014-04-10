@@ -316,11 +316,9 @@ GameManager.prototype.canFuse = function (first, second) {
 GameManager.prototype.fusion = function (first, second) {
   var forward = this.fusionRules[first];
   if (forward && forward[second]) {
-		//console.log(first + " " + second + " " + forward[second]);
     return forward[second];
   } else {
     var backward = this.fusionRules[second][first];
-		//console.log(first + " " + second + " " + backward);
     return backward;
   }
 };
@@ -351,10 +349,6 @@ GameManager.prototype.fusionRules = {
 						 },
   "16Oxygen":{"16Oxygen":"28Silicon", // + 4Helium
 						 }
-};
-
-GameManager.prototype.decayRules = {
-  "8Beryllium":["4Helium","4Helium"]
 };
 
 GameManager.prototype.labels = {
