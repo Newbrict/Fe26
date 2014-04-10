@@ -194,6 +194,7 @@ hr {
     box-sizing: border-box;
 
     .game-message {
+      border-radius: $tile-border-radius * 2;
       display: none;
 
       position: absolute;

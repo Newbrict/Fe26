@@ -157,6 +157,7 @@ hr {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
   .game-container .game-message {
+    border-radius: 6px;
     display: none;
     position: absolute;
     top: 0;
@@ -571,6 +572,7 @@ hr {
     -moz-box-sizing: border-box;
     box-sizing: border-box; }
     .game-container .game-message {
+      border-radius: 6px;
       display: none;
       position: absolute;
       top: 0;
