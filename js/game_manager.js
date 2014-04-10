@@ -73,7 +73,7 @@ GameManager.prototype.addStartTiles = function () {
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
     var value = Math.random() < 0.9 ? "Hydrogen" : "Deuteron";
-    var tile = new Tile(this.grid.randomAvailableCell(), value);
+    var tile = new Tile(this.grid.randomAvailableCell(), value, this.labels[value]);
 
     this.grid.insertTile(tile);
   }
@@ -163,7 +163,7 @@ GameManager.prototype.move = function (direction) {
           if( self.canFuse(next.value,tile.value) ) {
             shouldMove = false;
             var fusionValue = self.fusion(next.value,tile.value);
-            var merged = new Tile(positions.next, fusionValue);
+            var merged = new Tile(positions.next, fusionValue, self.labels[fusionValue]);
             merged.mergedFrom = [tile, next];
             //merged.movesLeft = 5;
 
@@ -336,6 +336,25 @@ GameManager.prototype.fusionRules = {
 GameManager.prototype.decayRules = {
   "8Beryllium":["4Helium","4Helium"]
 };
+
+GameManager.prototype.labels = {
+  "Hydrogen": "Hydrogen",
+  "Deuteron": "Deuteron",
+  "3Helium": "<sup>3</sup>Helium",
+  "4Helium": "<sup>4</sup>Helium",
+  "8Beryllium": "<sup>8</sup>Beryllium",
+  "12Carbon": "<sup>12</sup>Carbon",
+  "16Oxygen": "<sup>16</sup>Oxygen",
+  "20Neon": "<sup>20</sup>Neon",
+  "24Magnesium": "<sup>24</sup>Magnesium",
+  "32Sulfur": "<sup>32</sup>Sulfur",
+  "36Argon": "<sup>36</sup>Argon",
+  "40Calcium": "<sup>40</sup>Calcium",
+  "44Titanium": "<sup>44</sup>Titanium",
+  "48Chromium": "<sup>48</sup>Chromium",
+  "52Iron": "<sup>52</sup>Iron",
+  "56Nickel": "<sup>56</sup>Nickel"
+}
 
 GameManager.prototype.pointValues = {
   "Deuteron":1,
