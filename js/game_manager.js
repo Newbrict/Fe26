@@ -4,6 +4,10 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.storageManager = new StorageManager;
   this.actuator       = new Actuator;
 
+  this.version = 0.1;
+
+  this.storageManager.clearIfOutdated(this.version);
+
   this.startTiles     = 2;
 
   this.inputManager.on("move", this.move.bind(this));
@@ -170,7 +174,7 @@ GameManager.prototype.move = function (direction) {
             var decay = self.decay[fusionValue] || false;
 
             if(decay !== false) {
-              merged.movesLeft = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
+              merged.movesLeft = Math.floor(Math.random() * (10*decay['multipler'] - 5*decay['multipler'] + 1)) + 5*decay['multipler'];
             }
 
             //merged.movesLeft = 5;
@@ -205,7 +209,7 @@ GameManager.prototype.move = function (direction) {
 
     this.grid.eachCell(function(x, y, tile) {
       if(tile !== null && self.decay[tile.value] && tile.decay()) {
-        var decayValue = self.decay[tile.value];
+        var decayValue = self.decay[tile.value]['to'];
         var decayed = new Tile({
           x: tile.x,
           y: tile.y
@@ -375,8 +379,18 @@ GameManager.prototype.labels = {
 }
 
 GameManager.prototype.decay = {
-  "8Beryllium": "4Helium",
-  "56Nickel": "52Iron"
+  "7Beryllium": {
+    "multipler": "2",
+    "to": "4Helium"
+  },
+  "8Beryllium": {
+    "multipler": "1",
+    "to": "4Helium"
+  },
+  "56Nickel": {
+    "multipler": "1",
+    "to": "52Iron"
+  }
 }
 
 GameManager.prototype.pointValues = {

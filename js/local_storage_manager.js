@@ -21,6 +21,7 @@ window.fakeStorage = {
 function LocalStorageManager() {
   this.bestScoreKey     = "bestScore";
   this.gameStateKey     = "gameState";
+  this.gameVersionKey   = "version";
 
   var supported = this.localStorageSupported();
   this.storage = supported ? window.localStorage : window.fakeStorage;
@@ -48,6 +49,15 @@ LocalStorageManager.prototype.setBestScore = function (score) {
   this.storage.setItem(this.bestScoreKey, score);
 };
 
+// Game version getters/setters
+LocalStorageManager.prototype.getGameVersion = function () {
+  return this.storage.getItem(this.gameVersionKey) || 0;
+};
+
+LocalStorageManager.prototype.setGameVersion = function (version) {
+  this.storage.setItem(this.gameVersionKey, version);
+};
+
 // Game state getters/setters and clearing
 LocalStorageManager.prototype.getGameState = function () {
   var stateJSON = this.storage.getItem(this.gameStateKey);
@@ -60,4 +70,12 @@ LocalStorageManager.prototype.setGameState = function (gameState) {
 
 LocalStorageManager.prototype.clearGameState = function () {
   this.storage.removeItem(this.gameStateKey);
+};
+
+LocalStorageManager.prototype.clearIfOutdated = function (clientVersion) {
+  if(clientVersion > this.getGameVersion())
+  {
+    this.clearGameState();
+    this.setGameVersion(clientVersion)
+  }
 };
