@@ -4,7 +4,7 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.storageManager = new StorageManager;
   this.actuator       = new Actuator;
 
-  this.version = 0.1;
+  this.version = 0.2;
 
   this.storageManager.clearIfOutdated(this.version);
 
