@@ -313,7 +313,7 @@ GameManager.prototype.fusionRules = {
 						 },
   "3Helium":{"3Helium":"4Helium",
 							//"4Helium":"7Beryllium"
-						 },
+						},
   "4Helium":{"4Helium":"8Beryllium", // unstable decays into 2 4heliums
 						 "8Beryllium":"12Carbon",
 						 "12Carbon":"16Oxygen",
@@ -328,14 +328,26 @@ GameManager.prototype.fusionRules = {
 						 "52Iron":"56Nickel",
 						},
   "12Carbon":{"12Carbon":"20Neon", // + 4Helium (randomness)
-						},
+						 },
   "16Oxygen":{"16Oxygen":"28Silicon", // + 4Helium
-						},
+						 },
 };
 
 GameManager.prototype.pointValues = {
-  "Helium":2,
-  "Dimitarium":1.5,
-  "Soumyarupium":1.5,
-  "Kevinolium":1.5
+  "Deuteron":1,
+  "3Helium":1.5,
+  "4Helium":2,
+  "8Beryllium":4,
+  "12Carbon":6,
+  "16Oxygen":8,
+  "20Neon":10,
+  "24Magnesium":12,
+  "28Silicon":14,
+  "32Sulfur":16,
+  "36Argon":18,
+  "40Calcium":20,
+  "44Titanium":22,
+  "48Chromium":24,
+  "52Iron":26,
+  "56Nickel":28,
 };
