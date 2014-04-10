@@ -4,11 +4,12 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.storageManager = new StorageManager;
   this.actuator       = new Actuator;
 
-  this.version = 0.3;
+  this.version = 0.4;
 
   this.storageManager.clearIfOutdated(this.version);
 
   this.startTiles     = 2;
+  this.winningValue = "56Iron";
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
@@ -190,7 +191,7 @@ GameManager.prototype.move = function (direction) {
 
             // TODO win state
             // The mighty 2048 tile
-            if (merged.value === "56Iron") self.won = true;
+            if (merged.value === self.winningValue) self.won = true;
           }
         }
         if (shouldMove) {
@@ -216,6 +217,8 @@ GameManager.prototype.move = function (direction) {
         }, decayValue, self.labels[decayValue]);
         self.grid.removeTile(tile);
         self.grid.insertTile(decayed);
+
+        if (decayed.value === self.winningValue) self.won = true;
       }
     });
 
