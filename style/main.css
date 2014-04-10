@@ -325,71 +325,58 @@ hr {
     text-align: center;
     top: 7px;
     width: 16px; }
-  .tile.tile-2 .tile-inner {
-    background: #eee4da;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
-  .tile.tile-4 .tile-inner {
-    background: #ede0c8;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0), inset 0 0 0 1px rgba(255, 255, 255, 0); }
-  .tile.tile-8 .tile-inner {
+  .tile.tile-Hydrogen .tile-inner {
+    background: #eee4da; }
+  .tile.tile-Deuteron .tile-inner {
+    background: #ede2cf; }
+  .tile.tile-3Helium .tile-inner {
     color: #f9f6f2;
-    background: #f2b179; }
-  .tile.tile-16 .tile-inner {
+    background: #f2b280; }
+  .tile.tile-4Helium .tile-inner {
     color: #f9f6f2;
-    background: #f59563; }
-  .tile.tile-32 .tile-inner {
+    background: #f5976d; }
+  .tile.tile-7Beryllium .tile-inner {
     color: #f9f6f2;
-    background: #f67c5f; }
-  .tile.tile-64 .tile-inner {
+    background: #f67f6b; }
+  .tile.tile-8Beryllium .tile-inner {
     color: #f9f6f2;
-    background: #f65e3b; }
-  .tile.tile-128 .tile-inner {
+    background: #f6624b; }
+  .tile.tile-12Carbon .tile-inner {
     color: #f9f6f2;
-    background: #edcf72;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.2381), inset 0 0 0 1px rgba(255, 255, 255, 0.14286);
-    font-size: 45px; }
-    @media screen and (max-width: 520px) {
-      .tile.tile-128 .tile-inner {
-        font-size: 25px; } }
-  .tile.tile-256 .tile-inner {
+    background: #edd79d; }
+  .tile.tile-16Oxygen .tile-inner {
     color: #f9f6f2;
-    background: #edcc61;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.31746), inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
-    font-size: 45px; }
-    @media screen and (max-width: 520px) {
-      .tile.tile-256 .tile-inner {
-        font-size: 25px; } }
-  .tile.tile-512 .tile-inner {
+    background: #edd693; }
+  .tile.tile-20Neon .tile-inner {
     color: #f9f6f2;
-    background: #edc850;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.39683), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
-    font-size: 45px; }
-    @media screen and (max-width: 520px) {
-      .tile.tile-512 .tile-inner {
-        font-size: 25px; } }
-  .tile.tile-1024 .tile-inner {
+    background: #edd489; }
+  .tile.tile-24Magnesium .tile-inner {
     color: #f9f6f2;
-    background: #edc53f;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
-    font-size: 35px; }
-    @media screen and (max-width: 520px) {
-      .tile.tile-1024 .tile-inner {
-        font-size: 15px; } }
-  .tile.tile-2048 .tile-inner {
+    background: #edd27e; }
+  .tile.tile-28Silicon .tile-inner {
     color: #f9f6f2;
-    background: #edc22e;
-    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
-    font-size: 35px; }
-    @media screen and (max-width: 520px) {
-      .tile.tile-2048 .tile-inner {
-        font-size: 15px; } }
-  .tile.tile-super .tile-inner {
+    background: #edd074; }
+  .tile.tile-32Sulfur .tile-inner {
     color: #f9f6f2;
-    background: #3c3a32;
-    font-size: 30px; }
-    @media screen and (max-width: 520px) {
-      .tile.tile-super .tile-inner {
-        font-size: 10px; } }
+    background: #edce6a; }
+  .tile.tile-36Argon .tile-inner {
+    color: #f9f6f2;
+    background: #edcc60; }
+  .tile.tile-40Calcium .tile-inner {
+    color: #f9f6f2;
+    background: #edca56; }
+  .tile.tile-44Titanium .tile-inner {
+    color: #f9f6f2;
+    background: #edc84c; }
+  .tile.tile-48Chromium .tile-inner {
+    color: #f9f6f2;
+    background: #edc642; }
+  .tile.tile-52Iron .tile-inner {
+    color: #f9f6f2;
+    background: #edc438; }
+  .tile.tile-56Nickel .tile-inner {
+    color: #f9f6f2;
+    background: #edc22e; }
 
 @-webkit-keyframes appear {
   0% {

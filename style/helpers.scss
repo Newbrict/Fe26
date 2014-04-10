@@ -79,3 +79,53 @@
     clear: both;
   }
 }
+
+@mixin tile-bg-color($exponent) {
+  $base: 2;
+  $limit: 18;
+
+  // Colors for all 11 states, false = no special color
+  $special-colors: false false, // 2
+                   false false, // 4
+                   #f78e48 true, // 8
+                   #fc5e2e true, // 16
+                   #ff3333 true, // 32
+                   #ff0000 true, // 64
+                   false true, // 128
+                   false true, // 256
+                   false true, // 512
+                   false true, // 1024
+                   false true, // 2048
+                   false true, // 4096
+                   false true, // 8192
+                   false true, // 16384
+                   false true, // 32768
+                   false true, // 65536
+                   false true, // 131072
+                   false true; // 262144
+
+  $power: pow($base, $exponent);
+
+  // Calculate base background color
+  $gold-percent: ($exponent - 1) / ($limit - 1) * 100;
+  $mixed-background: mix($tile-gold-color, $tile-color, $gold-percent);
+
+  $nth-color: nth($special-colors, $exponent);
+
+  $special-background: nth($nth-color, 1);
+  $bright-color: nth($nth-color, 2);
+
+  @if $special-background {
+    $mixed-background: mix($special-background, $mixed-background, 55%);
+  }
+
+  @if $bright-color {
+    color: $bright-text-color;
+  }
+
+  // Set background
+  background: $mixed-background;
+
+  // Add glow
+  $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
+}
