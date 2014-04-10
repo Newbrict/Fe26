@@ -1,7 +1,8 @@
-function Tile(position, value) {
+function Tile(position, value, label) {
   this.x                = position.x;
   this.y                = position.y;
   this.value            = value || 2;
+  this.label            = label;
   this.movesLeft        = -1;
 
   this.previousPosition = null;
@@ -24,7 +25,8 @@ Tile.prototype.serialize = function () {
       y: this.y
     },
     value: this.value,
-    movesLeft: this.movesLeft
+    movesLeft: this.movesLeft,
+    label: this.label
   };
 };
 
