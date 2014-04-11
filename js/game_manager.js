@@ -4,7 +4,7 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.storageManager = new StorageManager;
   this.actuator       = new Actuator;
 
-  this.version = 0.4;
+  this.version = 0.5;
 
   this.storageManager.clearIfOutdated(this.version);
 
@@ -175,10 +175,8 @@ GameManager.prototype.move = function (direction) {
             var decay = self.decay[fusionValue] || false;
 
             if(decay !== false) {
-              merged.movesLeft = Math.floor(Math.random() * (10*decay['multipler'] - 4*decay['multipler'] + 1)) + 4*decay['multipler'];
+              merged.movesLeft = Math.floor(Math.random() * (Math.ceil(8*decay['multipler']) - Math.ceil(4*decay['multipler']) + 1)) + Math.ceil(4*decay['multipler']);
             }
-
-            //merged.movesLeft = 5;
 
             self.grid.insertTile(merged);
             self.grid.removeTile(tile);
@@ -217,6 +215,8 @@ GameManager.prototype.move = function (direction) {
         }, decayValue, self.labels[decayValue]);
         self.grid.removeTile(tile);
         self.grid.insertTile(decayed);
+
+        self.score -= self.pointValues[tile.value];
 
         if (decayed.value === self.winningValue) self.won = true;
       }
@@ -382,15 +382,15 @@ GameManager.prototype.decay = {
     "to": "4Helium"
   },
   "8Beryllium": {
-    "multipler": "0.5",
-    "to": "4Helium"
-  },
-  "52Iron": {
     "multipler": "1",
     "to": "4Helium"
   },
-  "56Nickel": {
+  "52Iron": {
     "multipler": "2",
+    "to": "48Chromium"
+  },
+  "56Nickel": {
+    "multipler": "1.5",
     "to": "56Iron"
   }
 }
