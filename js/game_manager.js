@@ -4,7 +4,7 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.storageManager = new StorageManager;
   this.actuator       = new Actuator;
 
-  this.version = 0.6;
+  this.version = 0.8;
 
   this.storageManager.clearIfOutdated(this.version);
 
@@ -187,8 +187,7 @@ GameManager.prototype.move = function (direction) {
             // Update the score
             self.score += self.pointValues[merged.value];
 
-            // TODO win state
-            // The mighty 2048 tile
+            // TODO win state ( if not decaying )
             if (merged.value === self.winningValue) self.won = true;
           }
         }
@@ -216,7 +215,7 @@ GameManager.prototype.move = function (direction) {
         self.grid.removeTile(tile);
         self.grid.insertTile(decayed);
 
-        self.score -= self.pointValues[tile.value];
+        self.score += self.decay[tile.value].points;
 
         if (decayed.value === self.winningValue) self.won = true;
       }
@@ -374,30 +373,7 @@ GameManager.prototype.labels = {
   "52Iron": "<sup>52</sup>Iron",
   "56Nickel": "<sup>56</sup>Nickel",
   "56Iron": "<sup>56</sup>Iron"
-}
-
-GameManager.prototype.decay = {
-  "7Beryllium": {
-    "multipler": "3",
-    "to": "4Helium"
-  },
-  "8Beryllium": {
-    "multipler": "1",
-    "to": "4Helium"
-  },
-  "20Neon": {
-    "multipler": "2.5",
-    "to": "16Oxygen"
-  },
-  "52Iron": {
-    "multipler": "2",
-    "to": "48Chromium"
-  },
-  "56Nickel": {
-    "multipler": "1.5",
-    "to": "56Iron"
-  }
-}
+};
 
 GameManager.prototype.pointValues = {
   "Deuteron":1,
@@ -418,4 +394,32 @@ GameManager.prototype.pointValues = {
   "52Iron":26,
   "56Nickel":28,
   "56Iron":56
+};
+
+GameManager.prototype.decay = {
+  "7Beryllium": {
+    "multipler": "3",
+    "to": "4Helium",
+		"points": -3
+  },
+  "8Beryllium": {
+    "multipler": "1",
+    "to": "4Helium",
+		"points": -4
+  },
+  "20Neon": {
+    "multipler": "2.5",
+    "to": "16Oxygen",
+		"points": -10
+  },
+  "52Iron": {
+    "multipler": "2",
+    "to": "48Chromium",
+		"points": -26
+  },
+  "56Nickel": {
+    "multipler": "1.5",
+    "to": "56Iron",
+		"points": 56
+  }
 };
