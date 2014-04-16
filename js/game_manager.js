@@ -385,6 +385,10 @@ GameManager.prototype.decay = {
     "multipler": "1",
     "to": "4Helium"
   },
+  "20Neon": {
+    "multipler": "2.5",
+    "to": "16Oxygen"
+  },
   "52Iron": {
     "multipler": "2",
     "to": "48Chromium"
