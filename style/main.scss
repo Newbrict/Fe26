@@ -464,7 +464,7 @@ hr {
 
 @include smaller($mobile-threshold) {
   // Redefine variables for smaller screens
-  $field-width: 280px !global;
+  $field-width: 325px !global;
   $grid-spacing: 10px !global;
   $grid-row-cells: 4 !global;
   $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells !global;
@@ -520,8 +520,15 @@ hr {
   @include game-field;
 
   // Rest of the font-size adjustments in the tile class
-  .tile .tile-inner {
-    font-size: 35px;
+  .tile {
+    .tile-counter {
+      font-size: 0.8em;
+      padding: 1px 3px;
+      width: auto;
+    }
+    .tile-inner {
+      font-size: 13px;
+    }
   }
 
   .game-message {
