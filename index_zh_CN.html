@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Fe[26]</title>
+  <title>死铁</title>
 
   <link href="style/main.css" rel="stylesheet" type="text/css">
   <link href="style/bootstrap.css" rel="stylesheet" type="text/css">
@@ -17,25 +17,24 @@
 <body>
   <div class="container">
     <div class="heading">
-      <h1 class="title">Fe[26]</h1>
+      <h1 class="title">死铁</h1>
       <div class="scores-container">
         <div class="score-container">0</div>
         <div class="best-container">0</div>
       </div>
     </div>
-	
+
     <div class="above-game">
-      <p class="game-intro">Fuse your way to the <strong><sup>56</sup>Iron tile!</strong></p>
-	  
-	  <a class="restart-button">New Game</a>
-	      </div>
-<br>中文版在<a href="index_zh_CN.html">这里</a>！</br>
+      <p class="game-intro">一路聚变到 <strong><sup>56</sup>Fe 来毁灭这恒星！</strong></p>
+      <a class="restart-button">新的游戏</a>
+    </div>
+	<br>English version is <a href="index.html">here</a>!</br>
     <div class="game-container">
       <div class="game-message">
         <p></p>
         <div class="lower">
-	        <a class="keep-playing-button">Keep going</a>
-          <a class="retry-button">Try another star</a>
+	        <a class="keep-playing-button">接着玩</a>
+          <a class="retry-button">开始新游戏</a>
         </div>
       </div>
 
@@ -70,10 +69,10 @@
     </div>
 
     <p class="game-explanation">
-      <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with can be fused ( check the fusion table below ) they <strong>fuse!</strong><br /><br /> *This has been simplified to make winning possible, we did however try to follow the fusion pathways that occur naturally in old stars as accurately as possible!
+      <strong class="important">如何进行游戏：</strong> 用 <strong>方向键</strong> 移动方块。 当两个方块代表的元素可以聚变时（详见下面的表格），它们就会 <strong>聚变！</strong><br /><br /> *核融合的过程已经被简化了，否则很难完成游戏。 然而，我们已经尽可能准确的模拟了自然界中垂死恒星中的核反应。
     </p>
 		<div class="panel panel-default">
-			<div class="panel-heading">Fusion Guide</div>
+			<div class="panel-heading">聚变方式</div>
 			<table class="table">
         <tbody id="fusionTable">
         </tbody>
@@ -81,7 +80,7 @@
 		</div>
 		<br />
 		<div class="panel panel-default">
-			<div class="panel-heading">Decay Guide</div>
+			<div class="panel-heading">衰变方式</div>
 			<table class="table">
         <tbody id="decayTable">
         </tbody>
@@ -90,6 +89,8 @@
     <p>
     Created by <a href="http://dimit.me">Dimitar Dimitrov</a> and <a href="http://kevo.io">Kevin O'Connor</a> for <a href="https://sites.google.com/site/matthewnewbyhome/">ASTR-1960</a>@<a href="http://rpi.edu">RPI</a> Based on 2048 by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
     </p>
+	</p>
+	Translated into Chinese by <a href="https://blog.ahokitsune.org">Dakkidaze</a>
   </div>
 
   <script src="js/jquery-1.11.0.min.js"></script>
@@ -97,11 +98,11 @@
   <script src="js/classlist_polyfill.js"></script>
   <script src="js/animframe_polyfill.js"></script>
   <script src="js/keyboard_input_manager.js"></script>
-  <script src="js/html_actuator.js"></script>
+  <script src="js/html_actuator_zh_CN.js"></script>
   <script src="js/grid.js"></script>
   <script src="js/tile.js"></script>
   <script src="js/local_storage_manager.js"></script>
-  <script src="js/game_manager.js"></script>
+  <script src="js/game_manager_zh_CN.js"></script>
   <script src="js/guide.js"></script>
   <script src="js/application.js"></script>
 	<script>
