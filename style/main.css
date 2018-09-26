@@ -1,4 +1,17 @@
 @import url(fonts/clear-sans.css);
+
+.ad {
+  background: #00ada0;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+  color: white;
+}
+
 html, body {
   margin: 0;
   padding: 0;
